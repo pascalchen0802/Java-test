@@ -52,3 +52,4 @@ public class Arena {
         p2.setCurrentHealth(10);
     }
 }
+
