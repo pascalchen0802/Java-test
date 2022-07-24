@@ -10,27 +10,29 @@ public class Arena {
 
         Random rand = new Random();
 
-        int x = 0;
-        int y = 0;
+        int georgiaDeath = 0;
+        int yetiDeath = 0;
 
         for(int j=0; j<=99; j++){
             revive(p1,p2);
             for (int i = 0; i <= 10; i++) {
-                if (p2.currentHealth == 0) {
-                    System.out.println(p2.getName() + " is dead!");
-                    x+=1;
-                    break;
-                }
 
                 if (p1.currentHealth == 0) {
                     System.out.println(p1.getName() + " is dead!");
-                    y+=1;
+                    yetiDeath+= 1;
+                }
+
+                if (p2.currentHealth == 0) {
+                    System.out.println(p2.getName() + " is dead!");
+                    georgiaDeath+= 1;
+                }
+
+                if (p1.currentHealth == 0 || p2.currentHealth == 0) {
                     break;
                 }
 
                 int rand_int1 = rand.nextInt(2);
                 double rand_dub1 = rand.nextDouble();
-
                 if (rand_int1 == 0) {
                     p1.strike(p2);
                     if (rand_dub1 < p2.getCounterAttackRate()) {
@@ -44,8 +46,8 @@ public class Arena {
                 }
             }
         }
-        System.out.println("Georgia died " + x + " times.");
-        System.out.println("Yeti died " + y + " times.");
+        System.out.println("Georgia died " + georgiaDeath + " times.");
+        System.out.println("Yeti died " + yetiDeath + " times.");
     }
     public static void revive(Person p1, Person p2){
         p1.setCurrentHealth(10);
