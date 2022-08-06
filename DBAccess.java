@@ -13,7 +13,7 @@ public class DBAccess{
      *
      * @return a Connection object
      */
-/*    public void connect() throws SQLException {
+    public void connect() throws SQLException {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);
@@ -47,7 +47,7 @@ public class DBAccess{
 
 
         conn.close();
-    }*/
+    }
 
     public void truncate() throws SQLException {
         Connection conn = null;
@@ -62,13 +62,7 @@ public class DBAccess{
 
         String SQL_update = "truncate table company;";
         PreparedStatement preparedStatement2 = conn.prepareStatement(SQL_update);
-        for (int i = 1; i<=5; i++) {
-            preparedStatement2.setInt(1, i);
-            preparedStatement2.setString(2, "company " + i);
-            preparedStatement2.setInt(3, 142);
-            preparedStatement2.setInt(4, 1420000);
             preparedStatement2.executeUpdate();
-        }
         String SQL_SELECT = "Select * from company";
         PreparedStatement preparedStatement = conn.prepareStatement(SQL_SELECT);
         ResultSet resultSet = preparedStatement.executeQuery();
